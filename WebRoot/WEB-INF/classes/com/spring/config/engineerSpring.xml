@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!-- ===================================================================================== -->
+	<!-- ====================================工程师相关配置====================================== -->
+	<!-- ===================================================================================== -->
+	<!--工程师实体类 -->
+ 	<bean id="Engineer" class="com.ebring.gsgfAppServer.entity.Engineer"></bean>
+	
+	<!--工程师操作类 -->
+	<bean id="EngineerDao" class="com.ebring.gsgfAppServer.daoImp.EngineerDaoImp">
+	</bean>
+	
+	<!--工程师业务逻辑类 -->
+	<bean id="EngineerService" class="com.ebring.gsgfAppServer.serviceImp.EngineerServiceImp">
+		<property name="engineerDao">
+			<ref bean="EngineerDao" />
+		</property>
+	</bean>
+
+	<!-- 工程师Action -->
+	<bean id="EngineerAction" class="com.ebring.gsgfAppServer.action.EngineerAction" scope="prototype">
+		<property name="engineerService">
+			<ref bean="EngineerService" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="dButils">
+			<ref bean="DButils" />
+		</property>
+	</bean>
+
+</beans>

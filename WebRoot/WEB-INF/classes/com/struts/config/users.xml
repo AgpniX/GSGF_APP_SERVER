@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+    
+<struts>
+	<package name="users" namespace="/users" extends="json-default">
+		<!-- 通过主键查询用户信息 -->			
+		<action name="getUsersByID" class="UsersAction" method="getUsersByID"/>	
+	</package>
+</struts>

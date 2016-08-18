@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!-- ===================================================================================== -->
+	<!-- ====================================保养相关配置====================================== -->
+	<!-- ===================================================================================== -->
+	<!--保养表实体类 -->
+ 	<bean id="Maintain" class="com.ebring.gsgfAppServer.entity.Maintain"></bean>
+
+	<!--保养dao -->
+	<bean id="MaintainDao" class="com.ebring.gsgfAppServer.daoImp.MaintainDaoImpl">
+	</bean>
+
+	<!--维修业务逻辑类 -->
+	<bean id="MaintainService" class="com.ebring.gsgfAppServer.serviceImp.MaintainServiceImpl">
+		<property name="maintainDao">
+			<ref bean="MaintainDao" />
+		</property>
+	</bean>
+
+	<!-- 维修Action -->
+	<bean id="MaintainAction" class="com.ebring.gsgfAppServer.action.MaintainAction" scope="prototype">
+		<property name="maintainService">
+			<ref bean="MaintainService" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="dButils">
+			<ref bean="DButils" />
+		</property>
+	</bean>
+
+</beans>

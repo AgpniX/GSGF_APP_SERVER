@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+	    <property name="current_session_context_class">thread</property>
+		<property name="dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+		<property name="connection.url">jdbc:sqlserver://192.168.108.117:1433;DataBaseName=guarantee</property>
+		<property name="connection.username">sa</property>
+		<property name="connection.password">111111</property>
+		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		
+		<!-- 项目用到的实体类 -->
+		<mapping resource="com/ebring/gsgfAppServer/entity/CycleCheck.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Spare.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Areas.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Gauges.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Register.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Uflo.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Provinces.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/FirmAudit.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Maintain.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Repair.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Engineer.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Cities.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/ResidentAudit.hbm.xml" />
+		<mapping resource="com/ebring/gsgfAppServer/entity/Users.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

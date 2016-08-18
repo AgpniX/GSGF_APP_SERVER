@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<!-- 工程师 -->
+	<include file="com/struts/config/engineer.xml"></include>
+	<!-- 计量表 -->
+	<include file="com/struts/config/gauges.xml"></include>
+	<!-- 用户 -->
+	<include file="com/struts/config/users.xml"></include>
+	<!-- 民用户日常巡检 -->
+	<include file="com/struts/config/ResidentAudit.xml"></include>
+	<!-- 公服用户日常巡检 -->
+	<include file="com/struts/config/FirmAudit.xml"></include>
+	<!-- 维修 -->
+	<include file="com/struts/config/repair.xml"></include>
+	<!-- 保养 -->
+	<include file="com/struts/config/maintain.xml"></include>
+</struts>

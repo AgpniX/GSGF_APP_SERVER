@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+    
+<struts>
+	<package name="repair" namespace="/repair" extends="json-default">
+		<!-- 查询工程师维修信息-->			
+		<action name="getRepairMessageByEngidAndUsertype" class="RepairAction" method="getRepairMessageByEngidAndUsertype"/>
+		<!-- 查询维修信息详情-->			
+		<action name="getRepairDetail" class="RepairAction" method="getRepairDetail"/>
+		<!-- 通过NFC查询维修信息详情-->			
+		<action name="getRepairInfoByNFC" class="RepairAction" method="getRepairInfoByNFC"/>
+		<!-- 提交维修信息详情-->			
+		<action name="submitRepairMessage" class="RepairAction" method="submitRepairMessage"/>
+	</package>
+</struts>

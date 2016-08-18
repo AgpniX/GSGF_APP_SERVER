@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!-- 定义数据源的信息 -->
+	<bean id="dataSource" 
+		class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass"><value>com.microsoft.sqlserver.jdbc.SQLServerDriver</value></property>
+		<property name="jdbcUrl"><value>jdbc:sqlserver://192.168.108.117:1433;DataBaseName=guarantee</value>
+		</property>
+		<property name="testConnectionOnCheckout" value="true"/>
+		<property name="user"><value>sa</value></property>
+		<property name="password"><value>111111</value></property>
+		<property name="maxPoolSize"><value>80</value></property>
+		<property name="minPoolSize"><value>1</value></property>
+		<property name="initialPoolSize"><value>1</value></property>
+		<property name="maxIdleTime"><value>20</value></property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="ListenC3P0dataSourceMyThread" class="com.ebring.gsgfAppServer.Thread.ListenC3P0dataSourceMyThread">
+		<property name="dataSource" ref="dataSource" />
+		<property name="c3p0dataSourceMyThread" ref="ListenC3P0dataSourceMyThread"></property>
+	</bean>
+	
+	<!-- 工具类相关配置  -->
+	<import resource="com/spring/config/DButils.xml"/>
+
+	<!-- 工程师Spring相关配置 -->
+	<import resource="com/spring/config/engineerSpring.xml"/>
+	
+	<!-- 计量表Spring相关配置 -->
+	<import resource="com/spring/config/gaugesSpring.xml"/>
+	
+	<!-- 用户Spring相关配置 -->
+	<import resource="com/spring/config/usersSpring.xml"/>
+	
+	<!-- 民用户日常巡检Spring相关配置 -->
+	<import resource="com/spring/config/ResidentAuditSpring.xml"/>
+	
+	<!-- 公服用户日常巡检Spring相关配置 -->
+	<import resource="com/spring/config/FirmAuditSpring.xml"/>
+	
+	<!-- 维修Spring相关配置 -->
+	<import resource="com/spring/config/repair.xml"/>
+	
+	<!-- 保养Spring相关配置 -->
+	<import resource="com/spring/config/maintain.xml"/> 
+
+</beans>
