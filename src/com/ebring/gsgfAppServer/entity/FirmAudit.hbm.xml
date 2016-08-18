@@ -65,7 +65,7 @@
             <column name="is_charge_meter_cell" />
         </property>
         <property name="meterCellMoney" type="java.lang.String">
-            <column name="meter_cell_money" />
+            <column name="meter_cell_money_" />
         </property>
         <property name="noMeterFeeReason" type="java.lang.String">
             <column name="no_meter_fee_reason" />
@@ -92,7 +92,7 @@
             <column name="is_charge_cont_cell" />
         </property>
         <property name="contCellMoney" type="java.lang.String">
-            <column name="cont_cell_money" />
+            <column name="cont_cell_money_" />
         </property>
         <property name="noContFeeReasion" type="java.lang.String">
             <column name="no_cont_fee_reasion" />
