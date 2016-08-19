@@ -2,12 +2,18 @@ package com.ebring.gsgfAppServer.entity;
 
 /**
  * CycleCheck entity. @author MyEclipse Persistence Tools
+ * 
+ * 周检实体类
  */
 
 public class CycleCheck implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String cycleCheckId;
 	private Gauges gauges;
 	private Engineer engineer;
@@ -54,6 +60,7 @@ public class CycleCheck implements java.io.Serializable {
 	private String contDealAdvice;
 	private String fieldMaintainTime;
 
+	private String gasNochangeReason;
 	// Constructors
 
 	/** default constructor */
@@ -84,7 +91,7 @@ public class CycleCheck implements java.io.Serializable {
 			String contCellState, String isChangeContCell,
 			String isChargeContCell, String contCellMoney,
 			String noContFeeReason, String contDealAdvice,
-			String fieldMaintainTime) {
+			String fieldMaintainTime,String gasNochangeReason) {
 		this.cycleCheckId = cycleCheckId;
 		this.gauges = gauges;
 		this.engineer = engineer;
@@ -130,6 +137,7 @@ public class CycleCheck implements java.io.Serializable {
 		this.noContFeeReason = noContFeeReason;
 		this.contDealAdvice = contDealAdvice;
 		this.fieldMaintainTime = fieldMaintainTime;
+		this.gasNochangeReason = gasNochangeReason;
 	}
 
 	// Property accessors
@@ -494,4 +502,13 @@ public class CycleCheck implements java.io.Serializable {
 		this.fieldMaintainTime = fieldMaintainTime;
 	}
 
+	public String getGasNochangeReason() {
+		return gasNochangeReason;
+	}
+
+	public void setGasNochangeReason(String gasNochangeReason) {
+		this.gasNochangeReason = gasNochangeReason;
+	}
+   
+	
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+    
+<struts>
+	<package name="cycleCheck" namespace="/cycleCheck" extends="json-default">		
+		<!-- 工用周检  -->			
+		<action name="publicCheck" class="ClycleCheckAction" method="publicCheck"/>
+		<!-- 民用周检 -->			
+		<action name="privateCheck" class="ClycleCheckAction" method="privateCheck"/>
+	</package>
+</struts>

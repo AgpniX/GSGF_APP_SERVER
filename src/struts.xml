@@ -16,4 +16,6 @@
 	<include file="com/struts/config/repair.xml"></include>
 	<!-- 保养 -->
 	<include file="com/struts/config/maintain.xml"></include>
+	<!-- 周检 -->
+	<include file="com/struts/config/CycleCheck.xml"></include>
 </struts>

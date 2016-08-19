@@ -59,5 +59,7 @@
 	
 	<!-- 保养Spring相关配置 -->
 	<import resource="com/spring/config/maintain.xml"/> 
+	<!-- 周检相关配置 -->
+	<import resource="com/spring/config/cycleChek.xml"/> 
 
 </beans>

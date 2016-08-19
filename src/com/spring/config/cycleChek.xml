@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!--Entity -->
+ 	<bean id="CycleCheck" class="com.ebring.gsgfAppServer.entity.CycleCheck"></bean>
+
+	<!--DAO -->
+	<bean id="CycleCheckDAO" class="com.ebring.gsgfAppServer.daoImp.CycleCheckDAO">
+	</bean>
+
+	<!--Service -->
+	<bean id="CycleCheckService" class="com.ebring.gsgfAppServer.serviceImp.CycleCheckServiceImp">
+		<property name="dao">
+			<ref bean="CycleCheckDAO" />
+		</property>
+	</bean>
+
+	<!-- Action -->
+	<bean id="CycleCheckAction" class="com.ebring.gsgfAppServer.action.ClycleCheckAction" scope="prototype">
+		<property name="service">
+			<ref bean="CycleCheckService" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="dButils">
+			<ref bean="DButils" />
+		</property>
+	</bean>
+
+</beans>

@@ -142,5 +142,8 @@
         <property name="fieldMaintainTime" type="java.lang.String">
             <column name="field_maintain_time" />
         </property>
+         <property name="gasNochangeReason" type="java.lang.String">
+            <column name="gau_mov_no_change_reason" />
+        </property>
     </class>
 </hibernate-mapping>
